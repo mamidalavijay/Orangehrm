@@ -1,0 +1,30 @@
+package operations;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class Orangehrm 
+{
+	private static final WebDriver driver = null;
+	public static void main(String[] args)
+	{	
+WebDriver driver;
+String applicationUrlAddress="http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/auth/login";
+System.setProperty("webdriver.edge.driver","D:\\jayam\\pranam\\driverfiles\\msedgedriver.exe");
+driver=new EdgeDriver();
+driver.get(applicationUrlAddress);
+driver.manage().window().maximize();
+	}
+	public void login()
+	{
+		WebElement username=driver.findElement(By.id("txtUsername"));
+		username.sendKeys("Vijay");
+		 WebElement password=driver.findElement(By.id("txtPassword"));
+	      password.sendKeys("Jayam12@");
+	      WebElement loginbutton=driver.findElement(By.id("btnLogin"));
+	      loginbutton.click();
+	}
+	
+}

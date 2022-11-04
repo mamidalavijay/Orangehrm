@@ -1,0 +1,16 @@
+package com.WebPagesTestCases;
+
+import org.testng.annotations.Test;
+
+import com.BaseTest.TestBase;
+import com.WebPages.LogInPage;
+
+public class LogInPageTest extends TestBase{
+	//written with the testcases
+	LogInPage lip;
+	@Test(priority=1)public void logInTest()
+	{
+		
+	}
+
+}

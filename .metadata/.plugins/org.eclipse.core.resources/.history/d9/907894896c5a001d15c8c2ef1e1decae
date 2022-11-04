@@ -1,0 +1,6 @@
+package operations;
+
+public class Monsterindiadropdown {
+Webdriver driver;
+String applicationUrlAddress="";
+}

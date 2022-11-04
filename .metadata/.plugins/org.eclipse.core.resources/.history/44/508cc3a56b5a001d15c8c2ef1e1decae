@@ -1,0 +1,12 @@
+package operations;
+
+import org.openqa.selenium.WebDriver;
+
+public class headerlinksof_tsrtc {
+	WebDriver driver;
+	String applicationUrlAddress="";
+	System.setProperty("webdriver.edge.driver ","D:\\jayam\\pranam\\driverfiles\\msedgedriver.exe" );
+	driver=new EdgeDriver();
+	driver.get(applicationUrlAddress);
+	driver.manage().window().maximize();
+}

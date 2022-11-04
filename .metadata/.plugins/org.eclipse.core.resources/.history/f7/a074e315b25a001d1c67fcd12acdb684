@@ -1,0 +1,18 @@
+package operations;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class Orangehrm 
+{
+	public static void main(String[] args)
+	{	
+WebDriver driver;
+String applicationUrlAddress="http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/dashboard";
+System.setProperty("webdriver.edge.driver","D:\\drivers\\msedgedriver.exe");
+driver=new EdgeDriver();
+driver.get(applicationUrlAddress);
+driver.manage().window().maximize();
+	}
+
+}

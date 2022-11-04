@@ -1,0 +1,43 @@
+package operations;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+
+public class Orangehrm 
+{
+	private static final WebDriver driver = null;
+	public static void main(String[] args) throws InterruptedException
+	{	
+WebDriver driver;
+String applicationUrlAddress="http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/auth/login";
+System.setProperty("webdriver.edge.driver","D:\\jayam\\pranam\\driverfiles\\msedgedriver.exe");
+driver=new EdgeDriver();
+driver.get(applicationUrlAddress);
+driver.manage().window().maximize();
+		WebElement username=driver.findElement(By.name("txtUsername"));
+		username.sendKeys("Vijay");
+		 WebElement password=driver.findElement(By.id("txtPassword"));
+	      password.sendKeys("Jayam12@");
+	      WebElement loginbutton=driver.findElement(By.id("btnLogin"));
+	      loginbutton.click();
+	WebElement pimmodule=driver.findElement(By.xpath("/html/body/div[1]/div[2]/ul/li[2]/a/b"));
+	pimmodule.click();
+	 WebElement AddEmployee=driver.findElement(By.xpath("/html/body/div[1]/div[2]/ul/li[2]/ul/li[3]/a"));
+	AddEmployee.click();
+	WebElement firstname=driver.findElement(By.name("firstName"));
+	firstname.sendKeys("vijay");
+	WebElement middlename=driver.findElement(By.name("middleName"));
+	middlename.sendKeys("kumar");
+	WebElement lastname=driver.findElement(By.name("lastName"));
+	lastname.sendKeys("mamidala");
+	 WebElement savebtn=driver.findElement(By.id("btnSave"));
+	savebtn.click();
+	driver.quit();
+	}
+	
+	
+	
+	
+}

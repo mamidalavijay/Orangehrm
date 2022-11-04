@@ -1,0 +1,38 @@
+package pranam;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+
+
+public class OrangeApplication {
+	public static void main (String[] args) {
+	WebDriver driver;
+	String  ApplicationUrlAddress=("http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/auth/login");
+	System.setProperty("webdriver.edge.driver","D:\\jayam\\pranam\\driverfiles\\msedgedriver.exe\\");
+	driver=new EdgeDriver();
+	driver.get(ApplicationUrlAddress);
+	driver.manage().window().maximize();
+String actual_TitleforOrangeHRMapplication=driver.getTitle();
+String expected_TitleforOrangeHRMapplication="OrangeHRM";
+if(actual_TitleforOrangeHRMapplication.contains(expected_TitleforOrangeHRMapplication))
+{
+	System.out.println("Title is matching test is pass");
+}else
+{
+	System.out.println("Title is not match fail");
+}
+WebElement Username=driver.findElement(By.id("txtUsername"));
+	Username.clear();
+	Username.sendKeys("Vijay");
+	WebElement Password=driver.findElement(By.name("txtPassword"));
+	Password.clear();
+	Password.sendKeys("Jayam12@");
+	 WebElement LogInButton=driver.findElement(By.className("button"));
+	 LogInButton.click();
+	WebElement  WelComeAdminElement=driver.findElement(By.linkText("WelCome Admin"));
+	WelComeAdminElement.click();
+	
+	}
+}

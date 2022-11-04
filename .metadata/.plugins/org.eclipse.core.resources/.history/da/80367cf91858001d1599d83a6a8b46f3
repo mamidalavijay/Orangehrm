@@ -1,0 +1,101 @@
+package pranam;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFEvaluationWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+
+
+public class OrangeApplication {
+	public static void main (String[] args) throws IOException {
+	WebDriver driver;
+	String  ApplicationUrlAddress=("http://127.0.0.1/orangehrm-4.2.0.1/symfony/web/index.php/auth/login");
+	System.setProperty("webdriver.edge.driver","D:\\jayam\\pranam\\driverfiles\\msedgedriver.exe\\");
+	driver=new EdgeDriver();
+	driver.get(ApplicationUrlAddress);
+	driver.manage().window().maximize();
+String actual_TitleforOrangeHRMapplication=driver.getTitle();
+String expected_TitleforOrangeHRMapplication="OrangeHRM";
+if(actual_TitleforOrangeHRMapplication.contains(expected_TitleforOrangeHRMapplication))
+{
+	System.out.println("Title is matching test is pass");
+}else
+{
+	System.out.println("Title is not match fail");
+}
+FileInputStream file=new FileInputStream("D:\\jayam\\pranam\\Excel sheets\\workbook_sheet.xlsx");
+XSSFWorkbook workbook=new XSSFWorkbook(file);
+XSSFSheet sheet=workbook.getSheet("Sheet1");
+
+ Row row=sheet.getRow(1);
+ Cell cell=row.getCell(0);
+ String ExpectedLoginpanel=cell.getStringCellValue();
+ System.out.println("ExpecetdLoginpanel: "+ExpectedLoginpanel);
+ WebElement LoginpanelElement=driver.findElement(By.id("LoginpanelHeading"));
+ String actalLoginpanelText=LoginpanelElement.getText();
+ System.out.println("The Text of Loginpanel:"+actalLoginpanelText);
+ cell=row.createCell(1);
+ cell.setCellValue(actalLoginpanelText);
+ System.out.println("ActualLoginpanel is :"+actalLoginpanelText);
+ cell=row.createCell(2);
+ if(actalLoginpanelText.equals(ExpectedLoginpanel))
+ {
+	 System.out.println("Loginpanel name is mached-pass");
+	 cell.setCellValue("pass");
+ }
+ else
+ {
+	 System.out.println("Loginpanel name is notmached-fail");
+	 cell.setCellValue("fail");
+ }
+WebElement Username=driver.findElement(By.id("txtUsername"));
+	Username.sendKeys("Vijay");
+	cell=row.createCell(3);
+	cell.setCellValue("Vijay");
+	WebElement Password=driver.findElement(By.id("txtPassword"));
+	Password.sendKeys("Jayam12@");
+	cell=row.createCell(4);
+	cell.setCellValue("Jatam12@");
+	 WebElement LogInButton=driver.findElement(By.id("btnLogin"));
+	 LogInButton.click();
+	WebElement HomepageElement=driver.findElement(By.id("menu-admin-viewAdminModule"));
+	String actualHomepageText=HomepageElement.getText();
+	System.out.println("actual text of homepage:"+actualHomepageText);
+	cell=row.getCell(5);
+	String expectedTextHomepage=cell.getStringCellValue();
+	System.out.println("Expected homepage is:"+expectedTextHomepage);
+	cell=row.createCell(6);
+	cell.setCellValue(actualHomepageText);
+	cell=row.createCell(7);
+	if(actualHomepageText.equals(expectedTextHomepage))
+	{
+		System.out.println("Homepage name is matched -pass");
+		cell.setCellValue("pass");
+	}
+	else
+	{
+		System.out.println("Homepage name is not matched-fail");
+		cell.setCellValue("fail");
+	}
+	
+WebElement 	PIMBtn=driver.findElement(By.id("menu-pim-viewPimModule"));
+	PIMBtn.click();
+WebElement	AddEmployeeBtn=driver.findElement(By.id("menu-pim-addEmployee"));
+	AddEmployeeBtn.click();
+	 WebElement AddEmployeeText=driver.findElement(By.xpath("//*[text()='Add Employee']"));
+	
+	}
+	
+	
+	}
+	
+}

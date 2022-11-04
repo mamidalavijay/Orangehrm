@@ -1,0 +1,8 @@
+
+<suite name="OrangeHRM ">
+<test name="LogInPage">
+<classes>
+<class name="com.WebPagesTestCases.LogInPageTest"/>
+</classes>
+</test>
+</suite>

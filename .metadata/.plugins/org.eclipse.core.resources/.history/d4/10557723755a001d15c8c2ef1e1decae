@@ -1,0 +1,20 @@
+package operations;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class DropDownlanguageinExcel {
+
+	public static void main(String[] args) {
+		WebDriver driver;
+		String applicationUrlAddress="https://jqueryui.com/droppable/";
+		System.setProperty("webdriver.chrome.driver","D:\\jayam\\pranam\\driverfiles\\msedgedriver.exe");
+		driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get(applicationUrlAddress);
+		driver.findElement(By.tagName(""));
+
+	}
+
+}

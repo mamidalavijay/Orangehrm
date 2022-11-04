@@ -1,0 +1,14 @@
+<suite name="OrangeHRM Application">
+<test name="chrome">
+<parameter name="Browser" value="chrome"/>
+<classes>
+<class name="com.Grid.OHRM_LogInTest"/>
+</classes>
+</test>
+<test name="firefox">
+<parameter name="Browser" value="firefox"/>
+<classes>
+<class name="com.Grid.OHRM_LogInTest"/>
+</classes>
+</test>
+</suite>

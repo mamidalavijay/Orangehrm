@@ -1,0 +1,25 @@
+package com.WebPages;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import com.BaseTest.TestBase;
+
+public class LogInPage extends TestBase{
+public LogInPage()
+{
+	PageFactory.initElements(driver, this);
+}
+//identification of element of the page
+//"object Repository" class
+//id="txtUserName"-UserName Element Property
+//WebElement UserName=driver.findElement(By.id("txtUserName"));
+@FindBy(id="txtUserName")
+WebElement UserName;
+@FindBy(name="txtPassWord")
+WebElement Password;
+@FindBy(className="button")
+WebElement logInButton;
+@FindBy(xpath="")
+}
